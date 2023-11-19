@@ -7,7 +7,7 @@ const cors = require("cors");
 
 
 app.use(cors({
-  origin: ['http://localhost:3000',],
+  origin: ['https://quickmemo-notes.netlify.app/',],
   credentials: true
 }));
 // app.use(cors());
