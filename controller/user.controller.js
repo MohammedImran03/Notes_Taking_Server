@@ -21,26 +21,35 @@ router.post("/user-Sign-up", async (req, res, next) => {
           message: "User already exists Please try to SignUp with different Email",
         });
       }
-      const user = {
-        name: name,
-        email: email,
-        password: password
-      };
-      // try {
-          await sendMail({
-          email: user.email,
-          subject: "QuickMemo Account Creation Successfull",
-          message: `Hello ${user.name}, Account Creation towards QuickMemo platform is Successful.\nLog in to enjoy the features in QuickMemo`,
-        });
-          return  res.status(201).json({
-                success: true,
-                message: `Hello ${user.name} QuickMemo account Created Successfully`,
+      const newuser = await User.create({name, email, password });
+      // sendToken(userEmail, 201, res);     
+      if(newuser._id){
+        const user = {
+          name: name,
+          email: email,
+          password: password
+        };
+        // try {
+            await sendMail({
+            email: user.email,
+            subject: "QuickMemo Account Creation Successfull",
+            message: `Hello ${user.name}, Account Creation towards QuickMemo platform is Successful.\nLog in to enjoy the features in QuickMemo`,
+          });
+            return  res.status(201).json({
+                  success: true,
+                  message: `Hello ${user.name} QuickMemo account Created Successfully,Now Log in.`,
+                });
+             }else{
+              return res.status(404).json({
+                success: false,
+                message: "New user Register Failed Try again later",
               });
-        userEmail = await User.create({name, email, password });
-      //         sendToken(userEmail, 201, res);            
-      // // } catch (error) {
-      //   return next(new ErrorHandler(error.message, 500));
-      // }
+              // return res.json({
+              //   status: "error",
+              //   success: false,
+              //   message: "User Creation failed!!!",
+              // });
+             } 
     } catch (error) {
         return res.status(500).json({
           success: false,

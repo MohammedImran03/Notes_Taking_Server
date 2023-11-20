@@ -9,7 +9,7 @@ const cors = require("cors");
 // app.use(cors({
 //   origin: ['https://quickmemo-notes.netlify.app/'],
 //   credentials: true
-// }));
+// }));   https://quickmemo-notes.netlify.app/
 app.use(cors({credentials: true, origin: 'https://quickmemo-notes.netlify.app'}));
 // app.use(cors());
   app.use(express.json());
