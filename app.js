@@ -7,10 +7,11 @@ const cors = require("cors");
 
 
 // app.use(cors({
-//   origin: ['https://quickmemo-notes.netlify.app/',],
+//   origin: ['https://quickmemo-notes.netlify.app/'],
 //   credentials: true
 // }));
-app.use(cors());
+app.use(cors({credentials: true, origin: 'https://quickmemo-notes.netlify.app/'}));
+// app.use(cors());
   app.use(express.json());
   app.use(cookieParser());
 //set body Parser
