@@ -10,7 +10,7 @@ const cors = require("cors");
 //   origin: ['https://quickmemo-notes.netlify.app/'],
 //   credentials: true
 // }));
-app.use(cors({credentials: true, origin: 'https://quickmemo-notes.netlify.app/'}));
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 // app.use(cors());
   app.use(express.json());
   app.use(cookieParser());
