@@ -7,16 +7,20 @@ const notesSchema = new mongoose.Schema({
         type: String,
         default:null,
     },
+    title:{
+      type: String,
+      default:null,
+    },
   notes:{
     type: String,
     default:null,
   },
   link:{
-    type: String,
+    type: Array,
     default:null,
   },
   filesattached:{
-    type: [],
+    type: Array,
     default:null,
   },
  createdAt:{

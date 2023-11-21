@@ -1,15 +1,16 @@
 const express = require("express");
 const app = express();
-const ErrorHandler = require("./middleware/Errors");
+// const ErrorHandler = require("./middleware/Errors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
 
 // app.use(cors({
-//   origin: ['https://quickmemo-notes.netlify.app/'],
+//   origin: ['http://localhost:3000',],
 //   credentials: true
-// }));   https://quickmemo-notes.netlify.app/
+// })); 
+// https://quickmemo-notes.netlify.app/
 app.use(cors({credentials: true, origin: 'https://quickmemo-notes.netlify.app'}));
 // app.use(cors());
   app.use(express.json());
@@ -41,6 +42,6 @@ const note = require("./controller/notes.controller");
   app.use("/api/notes",note);
 
   // ErrorHandling
-  app.use(ErrorHandler);
+  // app.use(ErrorHandler);
   
   module.exports = app;
