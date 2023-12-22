@@ -37,7 +37,7 @@ router.post("/user-Sign-up", async (req, res, next) => {
           });
             return  res.status(201).json({
                   success: true,
-                  message: `Hello ${user.name} QuickMemo account Created Successfully,Now Log in.`,
+                  message: `Hello ${user.name} QuickMemo account Created Successfully, Log in now.`,
                 });
              }else{
               return res.status(404).json({

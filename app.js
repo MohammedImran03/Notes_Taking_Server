@@ -10,7 +10,7 @@ const cors = require("cors");
 //   origin: ['http://localhost:3000',],
 //   credentials: true
 // })); 
-// https://quickmemo-notes.netlify.app/
+  // https://quickmemo-notes.netlify.app/
 app.use(cors({credentials: true, origin: 'https://quickmemo-notes.netlify.app'}));
 // app.use(cors());
   app.use(express.json());
@@ -36,10 +36,11 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   //Routes Import 
 const user = require("./controller/user.controller");
 const note = require("./controller/notes.controller");
-
+const task= require("./controller/Tasks.Controller");
   //Routes Usage
   app.use("/api/user",user);
   app.use("/api/notes",note);
+  app.use("/api/tasks",task);
 
   // ErrorHandling
   // app.use(ErrorHandler);
